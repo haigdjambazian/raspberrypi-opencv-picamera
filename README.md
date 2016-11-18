@@ -143,4 +143,26 @@ with DetectMotion(camera) as output:
     LOG.info("\ncamera turned off!")
 LOG.info("detect motion has ended.\n")
 ```
-    
+
+Turn off LED lights
+-------------------
+
+Add these to /boot/config.txt
+
+```
+# Disable the ACT LED.
+dtparam=act_led_trigger=none
+dtparam=act_led_activelow=off
+
+# Disable the PWR LED.
+dtparam=pwr_led_trigger=none
+dtparam=pwr_led_activelow=off
+```
+
+Setup the detect motion to start at boot
+----------------------------------------
+```
+source ~/.profile
+workon cv3
+python detect_motion.py
+```
