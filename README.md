@@ -161,8 +161,15 @@ dtparam=pwr_led_activelow=off
 
 Setup the detect motion to start at boot
 ----------------------------------------
+put this in a bash file run_detect.sh
 ```
 source ~/.profile
 workon cv3
 python detect_motion.py
 ```
+Add this in crontab -e
+```
+@reboot sh /home/pi/run_detect.sh
+```
+
+
